@@ -1,0 +1,26 @@
+%%%% MaxLearn, UI-UP PLP-forests, multi-value issues, testing 
+
+
+% For each strict example, compute the first level on which they differ.
+diff(ID1, ID2, X) :- strictExample(ID1,ID2), outcome(ID1,X,V1),
+  outcome(ID2,X,V2), V1 != V2.
+tree(TreeID) :- label(TreeID, _, _, _, _).
+firstDiff(TreeID, ID1, ID2, MinL) :- tree(TreeID), strictExample(ID1,ID2),
+  MinL = #min[ label(TreeID,L,X,P,V) : diff(ID1,ID2,X) = L ].
+
+% Define what it means for a UIUP PLP-tree to satisfy a strict example.
+strictSatByTree(TreeID, ID1, ID2) :- firstDiff(TreeID,ID1,ID2,MinL), outcome(ID1,X,V1), outcome(ID2,X,V2),
+  label(TreeID,MinL,X,P1,V1), label(TreeID,MinL,X,P2,V2), P1 < P2.
+strictSatByTree(TreeID, ID2, ID1) :- firstDiff(TreeID,ID1,ID2,MinL), outcome(ID1,X,V1), outcome(ID2,X,V2),
+  label(TreeID,MinL,X,P1,V1), label(TreeID,MinL,X,P2,V2), P1 > P2.
+
+% Define what it means for a UIUP PLP-forest to satisfy a strict example.
+numTreesSat(ID1, ID2, N) :- strictExample(ID1,ID2), N=#count{ strictSatByTree(_, ID1, ID2) }.
+numTreesSat(ID2, ID1, N) :- strictExample(ID1,ID2), N=#count{ strictSatByTree(_, ID2, ID1) }.
+strictSatByForest(ID1, ID2) :- numTreesSat(ID1, ID2, N1), numTreesSat(ID2, ID1, N2), N1 > N2.
+strictExampleSatByForest(ID1, ID2) :- strictSatByForest(ID1, ID2), strictExample(ID1, ID2).
+numberOfSatStrictEx(N) :- N = #count { strictExampleSatByForest(ID1, ID2) }.
+
+%% Show
+#hide.
+#show numberOfSatStrictEx/1.
