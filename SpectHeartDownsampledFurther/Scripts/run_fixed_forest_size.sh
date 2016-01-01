@@ -12,7 +12,7 @@ number_of_all_examples=$6
 training_sample_size_per_tree=$7
 size_of_forest=$8
 number_of_iterations=$9
-total_number_of_issues=$10
+total_number_of_issues=${10}
 number_of_users=1
 root_dir=${usr_dir}/Codes/PrefForestLearnExperiments/${dataset_name}
 origin_dir=${root_dir}/Original
@@ -50,12 +50,12 @@ function run {
     mkdir -p ${results_dir}/User${i}/${size_of_forest}trees/Testing
 		for (( j=0; j<$number_of_iterations; j+=1 )); do
 			# Train size_of_forest trees first
-			#######################################trainForest $i $j
+			trainForest $i $j
 
 			# Randomly pick k trees to form a forest for training and testing results
-			for (( k=50; k<=50; k+=1 )); do
-				rand-UIUP-forest $i $j $k
-			done
+			#for (( k=50; k<=50; k+=1 )); do
+			#	rand-UIUP-forest $i $j $k
+			#done
 		done
 	done
 }
@@ -168,7 +168,7 @@ function cleanup {
 
 ## main function
 function main {
-	#preRun
+	preRun
 	run
 	#postRun
 	#cleanup

@@ -1,0 +1,90 @@
+#!/bin/bash
+
+server_dir=http://www.cs.uky.edu/~liu
+pref_learn_lib_dir=${server_dir}/resources/PrefLearnLib
+
+strex_url_BreastCancerWisconsinDownsampled=${pref_learn_lib_dir}/BreastCancerWisconsin/strict_examples.csv.txt
+strex_url_CarEvaluation=${pref_learn_lib_dir}/CarEvaluation/strict_examples.csv.txt
+strex_url_CreditApprovalDownsampledFurther=${pref_learn_lib_dir}/CreditApproval/strict_examples.csv.txt
+strex_url_GermanCreditDownsampledFurther=${pref_learn_lib_dir}/GermanCredit/strict_examples.csv.txt
+strex_url_IonosphereDownsampledFurther=${pref_learn_lib_dir}/Ionosphere/strict_examples.csv.txt
+strex_url_MammographicMassDownsampled=${pref_learn_lib_dir}/MammographicMass/strict_examples.csv.txt
+strex_url_MushroomDownsampled=${pref_learn_lib_dir}/Mushroom/strict_examples.csv.txt
+strex_url_NurseryDownsampledFurther=${pref_learn_lib_dir}/Nursery/strict_examples.csv.txt
+strex_url_SpectHeartDownsampledFurther=${pref_learn_lib_dir}/SpectHeart/strict_examples.csv.txt
+strex_url_TicTacToe=${pref_learn_lib_dir}/TicTacToe/strict_examples.csv.txt
+strex_url_VehicleDownsampledFurther=${pref_learn_lib_dir}/Vehicle/strict_examples.csv.txt
+strex_url_WineDownsampled=${pref_learn_lib_dir}/Wine/strict_examples.csv.txt
+
+usr_dir=""
+if [ "$(hostname)" == 'kestrel' ]; then
+  usr_dir=/homes/liu
+else
+  usr_dir=/home/xudong
+fi
+
+root_dir=${usr_dir}/Codes/PrefForestLearnExperiments
+
+strex_dest_BreastCancerWisconsinDownsampled=${root_dir}/BreastCancerWisconsinDownsampled/Original/strict_examples.csv
+strex_dest_CarEvaluation=${root_dir}/CarEvaluation/Original/strict_examples.csv
+strex_dest_CreditApprovalDownsampledFurther=${root_dir}/CreditApprovalDownsampledFurther/Original/strict_examples.csv
+strex_dest_GermanCreditDownsampledFurther=${root_dir}/GermanCreditDownsampledFurther/Original/strict_examples.csv
+strex_dest_IonosphereDownsampledFurther=${root_dir}/IonosphereDownsampledFurther/Original/strict_examples.csv
+strex_dest_MammographicMassDownsampled=${root_dir}/MammographicMassDownsampled/Original/strict_examples.csv
+strex_dest_MushroomDownsampled=${root_dir}/MushroomDownsampled/Original/strict_examples.csv
+strex_dest_NurseryDownsampledFurther=${root_dir}/NurseryDownsampledFurther/Original/strict_examples.csv
+strex_dest_SpectHeartDownsampledFurther=${root_dir}/SpectHeartDownsampledFurther/Original/strict_examples.csv
+strex_dest_TicTacToe=${root_dir}/TicTacToe/Original/strict_examples.csv
+strex_dest_VehicleDownsampledFurther=${root_dir}/VehicleDownsampledFurther/Original/strict_examples.csv
+strex_dest_WineDownsampled=${root_dir}/WineDownsampled/Original/strict_examples.csv
+
+# Copies
+strex_cp_BreastCancerWisconsinDownsampled=${root_dir}/BreastCancerWisconsinDownsampled/Original/strict_examples_cp.csv
+strex_cp_CarEvaluation=${root_dir}/CarEvaluation/Original/strict_examples_cp.csv
+strex_cp_CreditApprovalDownsampledFurther=${root_dir}/CreditApprovalDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_GermanCreditDownsampledFurther=${root_dir}/GermanCreditDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_IonosphereDownsampledFurther=${root_dir}/IonosphereDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_MammographicMassDownsampled=${root_dir}/MammographicMassDownsampled/Original/strict_examples_cp.csv
+strex_cp_MushroomDownsampled=${root_dir}/MushroomDownsampled/Original/strict_examples_cp.csv
+strex_cp_NurseryDownsampledFurther=${root_dir}/NurseryDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_SpectHeartDownsampledFurther=${root_dir}/SpectHeartDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_TicTacToe=${root_dir}/TicTacToe/Original/strict_examples_cp.csv
+strex_cp_VehicleDownsampledFurther=${root_dir}/VehicleDownsampledFurther/Original/strict_examples_cp.csv
+strex_cp_WineDownsampled=${root_dir}/WineDownsampled/Original/strict_examples_cp.csv
+
+# Fetch them
+wget $strex_url_BreastCancerWisconsinDownsampled -O $strex_dest_BreastCancerWisconsinDownsampled
+cp $strex_dest_BreastCancerWisconsinDownsampled $strex_cp_BreastCancerWisconsinDownsampled
+
+wget $strex_url_CarEvaluation -O $strex_dest_CarEvaluation
+cp $strex_dest_CarEvaluation $strex_cp_CarEvaluation
+
+wget $strex_url_CreditApprovalDownsampledFurther -O $strex_dest_CreditApprovalDownsampledFurther
+cp $strex_dest_CreditApprovalDownsampledFurther $strex_cp_CreditApprovalDownsampledFurther
+
+wget $strex_url_GermanCreditDownsampledFurther -O $strex_dest_GermanCreditDownsampledFurther
+cp $strex_dest_GermanCreditDownsampledFurther $strex_cp_GermanCreditDownsampledFurther
+
+wget $strex_url_IonosphereDownsampledFurther -O $strex_dest_IonosphereDownsampledFurther
+cp $strex_dest_IonosphereDownsampledFurther $strex_cp_IonosphereDownsampledFurther
+
+wget $strex_url_MammographicMassDownsampled -O $strex_dest_MammographicMassDownsampled
+cp $strex_dest_MammographicMassDownsampled $strex_cp_MammographicMassDownsampled
+
+wget $strex_url_MushroomDownsampled -O $strex_dest_MushroomDownsampled
+cp $strex_dest_MushroomDownsampled $strex_cp_MushroomDownsampled
+
+wget $strex_url_NurseryDownsampledFurther -O $strex_dest_NurseryDownsampledFurther
+cp $strex_dest_NurseryDownsampledFurther $strex_cp_NurseryDownsampledFurther
+
+wget $strex_url_SpectHeartDownsampledFurther -O $strex_dest_SpectHeartDownsampledFurther
+cp $strex_dest_SpectHeartDownsampledFurther $strex_cp_SpectHeartDownsampledFurther
+
+wget $strex_url_TicTacToe -O $strex_dest_TicTacToe
+cp $strex_dest_TicTacToe $strex_cp_TicTacToe
+
+wget $strex_url_VehicleDownsampledFurther -O $strex_dest_VehicleDownsampledFurther
+cp $strex_dest_VehicleDownsampledFurther $strex_cp_VehicleDownsampledFurther
+
+wget $strex_url_WineDownsampled -O $strex_dest_WineDownsampled
+cp $strex_dest_WineDownsampled $strex_cp_WineDownsampled

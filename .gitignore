@@ -3,70 +3,82 @@ BreastCancerWisconsinDownsampled/Original/strict_examples.csv
 BreastCancerWisconsinDownsampled/Original/strict_examples_cp.csv
 BreastCancerWisconsinDownsampled/Transformed
 BreastCancerWisconsinDownsampled/ASP/User*
+BreastCancerWisconsinDownsampled/ASP/outcomes.gringo
 
 CarEvaluation/Original/StrictExamples
 CarEvaluation/Original/strict_examples.csv
 CarEvaluation/Original/strict_examples_cp.csv
 CarEvaluation/Transformed
 CarEvaluation/ASP/User*
+CarEvaluation/ASP/outcomes.gringo
 
 CreditApprovalDownsampledFurther/Original/StrictExamples
 CreditApprovalDownsampledFurther/Original/strict_examples.csv
 CreditApprovalDownsampledFurther/Original/strict_examples_cp.csv
 CreditApprovalDownsampledFurther/Transformed
 CreditApprovalDownsampledFurther/ASP/User*
+CreditApprovalDownsampledFurther/ASP/outcomes.gringo
 
 GermanCreditDownsampledFurther/Original/StrictExamples
 GermanCreditDownsampledFurther/Original/strict_examples.csv
 GermanCreditDownsampledFurther/Original/strict_examples_cp.csv
 GermanCreditDownsampledFurther/Transformed
 GermanCreditDownsampledFurther/ASP/User*
+GermanCreditDownsampledFurther/ASP/outcomes.gringo
 
 IonosphereDownsampledFurther/Original/StrictExamples
 IonosphereDownsampledFurther/Original/strict_examples.csv
 IonosphereDownsampledFurther/Original/strict_examples_cp.csv
 IonosphereDownsampledFurther/Transformed
 IonosphereDownsampledFurther/ASP/User*
+IonosphereDownsampledFurther/ASP/outcomes.gringo
 
 MammographicMassDownsampled/Original/StrictExamples
 MammographicMassDownsampled/Original/strict_examples.csv
 MammographicMassDownsampled/Original/strict_examples_cp.csv
 MammographicMassDownsampled/Transformed
 MammographicMassDownsampled/ASP/User*
+MammographicMassDownsampled/ASP/outcomes.gringo
 
 MushroomDownsampled/Original/StrictExamples
 MushroomDownsampled/Original/strict_examples.csv
 MushroomDownsampled/Original/strict_examples_cp.csv
 MushroomDownsampled/Transformed
 MushroomDownsampled/ASP/User*
+MushroomDownsampled/ASP/outcomes.gringo
 
 NurseryDownsampledFurther/Original/StrictExamples
 NurseryDownsampledFurther/Original/strict_examples.csv
 NurseryDownsampledFurther/Original/strict_examples_cp.csv
 NurseryDownsampledFurther/Transformed
 NurseryDownsampledFurther/ASP/User*
+NurseryDownsampledFurther/ASP/outcomes.gringo
 
 SpectHeartDownsampledFurther/Original/StrictExamples
 SpectHeartDownsampledFurther/Original/strict_examples.csv
 SpectHeartDownsampledFurther/Original/strict_examples_cp.csv
 SpectHeartDownsampledFurther/Transformed
 SpectHeartDownsampledFurther/ASP/User*
+SpectHeartDownsampledFurther/ASP/outcomes.gringo
 
 TicTacToe/Original/StrictExamples
 TicTacToe/Original/strict_examples.csv
 TicTacToe/Original/strict_examples_cp.csv
 TicTacToe/Transformed
 TicTacToe/ASP/User*
+TicTacToe/ASP/outcomes.gringo
 
 VehicleDownsampledFurther/Original/StrictExamples
 VehicleDownsampledFurther/Original/strict_examples.csv
 VehicleDownsampledFurther/Original/strict_examples_cp.csv
 VehicleDownsampledFurther/Transformed
 VehicleDownsampledFurther/ASP/User*
+VehicleDownsampledFurther/ASP/outcomes.gringo
 
 WineDownsampled/Original/StrictExamples
 WineDownsampled/Original/strict_examples.csv
 WineDownsampled/Original/strict_examples_cp.csv
 WineDownsampled/Transformed
 WineDownsampled/ASP/User*
+WineDownsampled/ASP/outcomes.gringo
 
