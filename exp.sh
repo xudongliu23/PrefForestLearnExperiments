@@ -29,7 +29,7 @@ total_number_of_issues_MammographicMassDownsampled=5
 number_of_all_examples_MammographicMassDownsampled=792
 training_size_MammographicMassDownsampled=$((7*$number_of_all_examples_MammographicMassDownsampled/10))
 
-MushroomDownsampled=${root_dir}/MammographicMassDownsampled/Scripts/run_fixed_forest_size.sh
+MushroomDownsampled=${root_dir}/MushroomDownsampled/Scripts/run_fixed_forest_size.sh
 total_number_of_issues_MushroomDownsampled=10
 number_of_all_examples_MushroomDownsampled=8448
 training_size_MushroomDownsampled=$((7*$number_of_all_examples_MushroomDownsampled/10))
@@ -62,7 +62,7 @@ total_number_of_issues_CreditApprovalDownsampledFurther=10
 number_of_all_examples_CreditApprovalDownsampledFurther=66079
 training_size_CreditApprovalDownsampledFurther=$((7*$number_of_all_examples_CreditApprovalDownsampledFurther/10))
 
-GermanCreditDownsampledFurther=${root_dir}/CreditApprovalDownsampledFurther/Scripts/run_fixed_forest_size.sh
+GermanCreditDownsampledFurther=${root_dir}/GermanCreditDownsampledFurther/Scripts/run_fixed_forest_size.sh
 total_number_of_issues_GermanCreditDownsampledFurther=10
 number_of_all_examples_GermanCreditDownsampledFurther=172368
 training_size_GermanCreditDownsampledFurther=$((7*$number_of_all_examples_GermanCreditDownsampledFurther/10))
@@ -79,13 +79,43 @@ number_of_iterations=1
 num_train_strict_examples_per_tree=50
 size_of_forest=6000
 
-time $CarEvaluation CarEvaluation $gringo3 $clasp $usr_dir $training_size_CarEvaluation \
-	$number_of_all_examples_CarEvaluation $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_CarEvaluation
+time $BreastCancerWisconsinDownsampled BreastCancerWisconsinDownsampled $gringo3 $clasp $usr_dir $training_size_BreastCancerWisconsinDownsampled \
+	$number_of_all_examples_BreastCancerWisconsinDownsampled $num_train_strict_examples_per_tree \
+	$size_of_forest $number_of_iterations $total_number_of_issues_BreastCancerWisconsinDownsampled
 
-time $NurseryDownsampledFurther NurseryDownsampledFurther $gringo3 $clasp $usr_dir $training_size_NurseryDownsampledFurther \
-	$number_of_all_examples_NurseryDownsampledFurther $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_NurseryDownsampledFurther
+#time $CarEvaluation CarEvaluation $gringo3 $clasp $usr_dir $training_size_CarEvaluation \
+#	$number_of_all_examples_CarEvaluation $num_train_strict_examples_per_tree \
+#	$size_of_forest $number_of_iterations $total_number_of_issues_CarEvaluation
+
+time $CreditApprovalDownsampledFurther CreditApprovalDownsampledFurther $gringo3 $clasp $usr_dir $training_size_CreditApprovalDownsampledFurther \
+	$number_of_all_examples_CreditApprovalDownsampledFurther $num_train_strict_examples_per_tree \
+	$size_of_forest $number_of_iterations $total_number_of_issues_CreditApprovalDownsampledFurther
+
+# TOO SLOW!
+#time $GermanCreditDownsampledFurther GermanCreditDownsampledFurther $gringo3 $clasp $usr_dir $training_size_GermanCreditDownsampledFurther \
+#	$number_of_all_examples_GermanCreditDownsampledFurther $num_train_strict_examples_per_tree \
+#	$size_of_forest $number_of_iterations $total_number_of_issues_GermanCreditDownsampledFurther
+
+time $IonosphereDownsampledFurther IonosphereDownsampledFurther $gringo3 $clasp $usr_dir $training_size_IonosphereDownsampledFurther \
+	$number_of_all_examples_IonosphereDownsampledFurther $num_train_strict_examples_per_tree \
+	$size_of_forest $number_of_iterations $total_number_of_issues_IonosphereDownsampledFurther
+
+time $MammographicMassDownsampled MammographicMassDownsampled $gringo3 $clasp $usr_dir $training_size_MammographicMassDownsampled \
+	$number_of_all_examples_MammographicMassDownsampled $num_train_strict_examples_per_tree \
+	$size_of_forest $number_of_iterations $total_number_of_issues_MammographicMassDownsampled
+
+# TOO SLOW!
+#time $MushroomDownsampled MushroomDownsampled $gringo3 $clasp $usr_dir $training_size_MushroomDownsampled \
+#	$number_of_all_examples_MushroomDownsampled $num_train_strict_examples_per_tree \
+#	$size_of_forest $number_of_iterations $total_number_of_issues_MushroomDownsampled
+
+#time $NurseryDownsampledFurther NurseryDownsampledFurther $gringo3 $clasp $usr_dir $training_size_NurseryDownsampledFurther \
+#	$number_of_all_examples_NurseryDownsampledFurther $num_train_strict_examples_per_tree \
+#	$size_of_forest $number_of_iterations $total_number_of_issues_NurseryDownsampledFurther
+
+time $SpectHeartDownsampledFurther SpectHeartDownsampledFurther $gringo3 $clasp $usr_dir $training_size_SpectHeartDownsampledFurther \
+	$number_of_all_examples_SpectHeartDownsampledFurther $num_train_strict_examples_per_tree \
+	$size_of_forest $number_of_iterations $total_number_of_issues_SpectHeartDownsampledFurther
 
 #time $TicTacToe TicTacToe $gringo3 $clasp $usr_dir $training_size_TicTacToe \
 #	$number_of_all_examples_TicTacToe $num_train_strict_examples_per_tree \
@@ -95,36 +125,7 @@ time $VehicleDownsampledFurther VehicleDownsampledFurther $gringo3 $clasp $usr_d
 	$number_of_all_examples_VehicleDownsampledFurther $num_train_strict_examples_per_tree \
 	$size_of_forest $number_of_iterations $total_number_of_issues_VehicleDownsampledFurther
 
-# TOO SLOW!
-#time $GermanCreditDownsampledFurther GermanCreditDownsampledFurther $gringo3 $clasp $usr_dir $training_size_GermanCreditDownsampledFurther \
-#	$number_of_all_examples_GermanCreditDownsampledFurther $num_train_strict_examples_per_tree \
-#	$size_of_forest $number_of_iterations $total_number_of_issues_GermanCreditDownsampledFurther
-
-time $CreditApprovalDownsampledFurther CreditApprovalDownsampledFurther $gringo3 $clasp $usr_dir $training_size_CreditApprovalDownsampledFurther \
-	$number_of_all_examples_CreditApprovalDownsampledFurther $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_CreditApprovalDownsampledFurther
-
-time $SpectHeartDownsampledFurther SpectHeartDownsampledFurther $gringo3 $clasp $usr_dir $training_size_SpectHeartDownsampledFurther \
-	$number_of_all_examples_SpectHeartDownsampledFurther $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_SpectHeartDownsampledFurther
-
-time $IonosphereDownsampledFurther IonosphereDownsampledFurther $gringo3 $clasp $usr_dir $training_size_IonosphereDownsampledFurther \
-	$number_of_all_examples_IonosphereDownsampledFurther $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_IonosphereDownsampledFurther
-
-time $BreastCancerWisconsinDownsampled BreastCancerWisconsinDownsampled $gringo3 $clasp $usr_dir $training_size_BreastCancerWisconsinDownsampled \
-	$number_of_all_examples_BreastCancerWisconsinDownsampled $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_BreastCancerWisconsinDownsampled
-
 time $WineDownsampled WineDownsampled $gringo3 $clasp $usr_dir $training_size_WineDownsampled \
 	$number_of_all_examples_WineDownsampled $num_train_strict_examples_per_tree \
 	$size_of_forest $number_of_iterations $total_number_of_issues_WineDownsampled
 
-# TOO SLOW!
-#time $MushroomDownsampled MushroomDownsampled $gringo3 $clasp $usr_dir $training_size_MushroomDownsampled \
-#	$number_of_all_examples_MushroomDownsampled $num_train_strict_examples_per_tree \
-#	$size_of_forest $number_of_iterations $total_number_of_issues_MushroomDownsampled
-
-time $MammographicMassDownsampled MammographicMassDownsampled $gringo3 $clasp $usr_dir $training_size_MammographicMassDownsampled \
-	$number_of_all_examples_MammographicMassDownsampled $num_train_strict_examples_per_tree \
-	$size_of_forest $number_of_iterations $total_number_of_issues_MammographicMassDownsampled
