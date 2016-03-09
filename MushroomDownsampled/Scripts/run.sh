@@ -32,6 +32,7 @@ outcomes=${ASP_dir}/outcomes.gringo
 train_pars="-c tn=$total_number_of_issues -c mn=$total_number_of_issues"
 test_pars="-c tn=$total_number_of_issues"
 time_pars="--time-limit=0"
+special_time_pars="--time-limit=180"
 
 results_dir=${root_dir}/Results
 parser_hr=${root_dir}/C++Src/parser
@@ -83,12 +84,20 @@ function trainForest {
 		
 		$gringo ${ASP_dir}/User$1/Training/tmp/examples_for_tree${k}.gringo $data \
 			${ASP_dir}/User$1/Training/tmp/number_of_strict_examples_for_tree${k}.gringo \
-			$outcomes ${ASP_dir}/$rules_train_ASP $train_pars | $clasp $time_pars > \
+			$outcomes ${ASP_dir}/$rules_train_ASP $train_pars | $clasp $special_time_pars > \
 			${results_dir}/User$1/${size_of_forest}trees/Training/tmp/res_for_tree${k}.txt 2>&1
 
-		# Get the learned tree
-		TREE_LEARNED="$(grep -B 2 OPTIMUM ${results_dir}/User${i}/${size_of_forest}trees/Training/tmp/res_for_tree${k}.txt | sed -n 1p)"
-		echo "${TREE_LEARNED}" >> ${results_dir}/User$1/${size_of_forest}trees/Training/trees_res$2.gringo
+		if grep -Fq "OPTIMUM" ${results_dir}/User${i}/${size_of_forest}trees/Training/tmp/res_for_tree${k}.txt; then
+			# optimal found within time limit
+			# Get the learned tree
+			TREE_LEARNED="$(grep -B 2 OPTIMUM ${results_dir}/User${i}/${size_of_forest}trees/Training/tmp/res_for_tree${k}.txt | sed -n 1p)"
+			echo "${TREE_LEARNED}" >> ${results_dir}/User$1/${size_of_forest}trees/Training/trees_res$2.gringo
+		else
+			# optimal not found within time limit
+			# Redo
+			TREE_LEARNED="$(grep -B 2 *** ${results_dir}/User${i}/${size_of_forest}trees/Training/tmp/res_for_tree${k}.txt | sed -n 1p)"
+			echo "${TREE_LEARNED}" >> ${results_dir}/User$1/${size_of_forest}trees/Training/trees_res$2.gringo
+		fi
 	done
 	rm -rf ${ASP_dir}/User$1/Training/tmp/
 	rm -rf ${results_dir}/User$1/${size_of_forest}trees/Training/tmp
